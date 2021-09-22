@@ -1,4 +1,6 @@
 //timeline
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,9 +12,19 @@ class _HomePageState extends State<HomePage> {
 
   double birdY = 0;
 
+  void jump() {
+     Timer.periodic(Duration(milliseconds: 50), (timer) {
+        setState(() {
+          birdY -= 0.05;
+        });
+     });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GestureDetector(
+      onTap: jump,
+      child: Scaffold(
       body: Column(
         children: [
           Expanded(
@@ -42,6 +54,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+    ),
     );
   }
 }
