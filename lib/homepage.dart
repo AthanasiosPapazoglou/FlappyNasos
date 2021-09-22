@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:newth/char.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,12 +11,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  double birdY = 0;
+  double charY = 0;
 
   void jump() {
      Timer.periodic(Duration(milliseconds: 50), (timer) {
         setState(() {
-          birdY -= 0.05;
+          charY -= 0.05;
         });
      });
   }
@@ -34,14 +35,9 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: Stack(
                   children: [
-                    Container(
-                      alignment: Alignment(0, birdY),
-                      child: Container(
-                        width: 50,
-                        height: 50,
-                        color:Colors.yellow,
-                      ),
-                    )
+                    MyChar(
+                      charY: charY,
+                    ),  
                   ],
                 ),
               ),
