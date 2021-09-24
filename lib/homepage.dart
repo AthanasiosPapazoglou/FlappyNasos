@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
         barrierX[i] -= 0.005;
       });
 
-      //X coordinances for the vertical symmetry meeting of character and barrier
+      //X coordinances for the vertical symmetry meeting of character and barrier (nasos)
       if (barrierX[i] < -0.25 && barrierX[i] > -0.255){
       currentScore++;
         if(currentScore > bestScore){
