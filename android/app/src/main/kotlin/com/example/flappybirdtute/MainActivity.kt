@@ -1,4 +1,4 @@
-package com.example.newth
+package com.example.flappybirdtute
 
 import io.flutter.embedding.android.FlutterActivity
 
