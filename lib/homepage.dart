@@ -17,10 +17,10 @@ class _HomePageState extends State<HomePage> {
   double initialPos = birdY;
   double height = 0;
   double time = 0;
-  double gravity = -4; // how strong the gravity is
-  double velocity = 3; // how strong the jump is
-  double birdWidth = 0.1; // out of 2, 2 being the entire width of the screen
-  double birdHeight = 0.1; // out of 2, 2 being the entire height of the screen
+  double gravity = -3.8; // how strong the gravity is
+  double velocity = 2.8; // how strong the jump is
+  double birdWidth = 0.25; // out of 2, 2 being the entire width of the screen
+  double birdHeight = 0.25; // out of 2, 2 being the entire height of the screen
 
   // game settings
   bool gameHasStarted = false;
