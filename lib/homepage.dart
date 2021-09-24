@@ -35,6 +35,11 @@ class _HomePageState extends State<HomePage> {
     [0.4, 0.6],
   ];
 
+
+  //score settings by Nasos
+  int currentScore = 0;
+  int bestScore = 0;
+
   void startGame() {
     gameHasStarted = true;
     Timer.periodic(Duration(milliseconds: 10), (timer) {
@@ -67,12 +72,22 @@ class _HomePageState extends State<HomePage> {
         barrierX[i] -= 0.005;
       });
 
+      //X coordinances for the vertical symmetry meeting of character and barrier
+      if (barrierX[i] < -0.25 && barrierX[i] > -0.255){
+      currentScore++;
+        if(currentScore > bestScore){
+          bestScore++;
+      }
+      }
+      
+      
       // if barrier exits the left part of the screen, keep it looping
       if (barrierX[i] < -1.5) {
         barrierX[i] += 3;
       }
     }
   }
+  
 
   void resetGame() {
     Navigator.pop(context); // dismisses the alert dialog
@@ -82,6 +97,7 @@ class _HomePageState extends State<HomePage> {
       time = 0;
       initialPos = birdY;
       barrierX = [2, 2 + 1.5];
+      currentScore = 0;
     });
   }
 
@@ -232,7 +248,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '0',
+                            '$currentScore',
                             style: TextStyle(color: Colors.white, fontSize: 35),
                           ),
                           SizedBox(
@@ -248,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '10',
+                            '$bestScore',
                             style: TextStyle(color: Colors.white, fontSize: 35),
                           ),
                           SizedBox(
